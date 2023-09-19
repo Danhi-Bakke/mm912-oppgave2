@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave</title>
+</head>
+
+<body>
+<h1>Guess My Number Game</h1>
+<p>The number is between 1 and 100.</p>
+<h3>Can you guess it?</h3>
+<input type="number" id="guessInput"/>
+<button onclick="stuff()">Click Me!</button>
+<p id="message">You have not guessed yet</p>
+    <script>
+const minNumber = 1;
+const maxNumber = 100;
+let randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+
+function stuff() {
+    const guessInput = document.getElementById("guessInput");
+    const nr = parseInt(guessInput.value);
+    if (nr===randomNumber) {
+    setMessage(`Congratulations! You guessed the correct number ${randomNumber}`);
+    }
+    else if (nr<randomNumber) {setMessage(`Too Low`);}
+    else if (nr>randomNumber) {setMessage(`Too High`);}
+}
+function setMessage(message) {
+            const messageElement = document.getElementById("message");
+            messageElement.textContent = message;
+}
+
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>
